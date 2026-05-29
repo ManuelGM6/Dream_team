@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://fipqmet6e2or"]
+
+[ext_resource type="Texture2D" uid="uid://deve8xhtlvtvv" path="res://Menu/imgs/placehold.jpg" id="1_pkhjh"]
+[ext_resource type="FontFile" uid="uid://q4ukhjqpad5t" path="res://fonts/ContrailOne-Regular.ttf" id="2_1xr1c"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tu0on"]
+font = ExtResource("2_1xr1c")
+font_size = 49
+font_color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control" unique_id=915062402]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=495161166]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_pkhjh")
+
+[node name="Label" type="Label" parent="." unique_id=206767021]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+text = "Presione para jugar"
+label_settings = SubResource("LabelSettings_tu0on")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+uppercase = true
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=645097506]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

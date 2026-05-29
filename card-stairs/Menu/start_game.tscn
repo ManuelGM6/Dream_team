@@ -1,0 +1,394 @@
+[gd_scene format=3 uid="uid://btveh21nv75e0"]
+
+[ext_resource type="Script" uid="uid://dbhyodb0a6qnx" path="res://Menu/start_game.gd" id="1_4gvpj"]
+[ext_resource type="AudioStream" uid="uid://bsdbhnl3h16kv" path="res://sound/cancionMenu.mp3" id="2_hm1vx"]
+[ext_resource type="Texture2D" uid="uid://c38q2l858gq5j" path="res://Menu/imgs/titulo.png" id="2_nn2uy"]
+[ext_resource type="Texture2D" uid="uid://c1q73n0r1txur" path="res://Menu/imgs/fondo.png" id="2_yvgrb"]
+[ext_resource type="Texture2D" uid="uid://byos3a0nnarea" path="res://Menu/imgs/flecha.png" id="4_8ok1x"]
+[ext_resource type="Script" uid="uid://b137wlli2olrg" path="res://Menu/control_de_volumen.gd" id="5_yvgrb"]
+
+[sub_resource type="Animation" id="Animation_yvgrb"]
+length = 1.2666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.1666666),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-2.670288e-05, -492), Vector2(-2.670288e-05, -180)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.0666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_hm1vx"]
+resource_name = "logo_appear"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.97),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-2.670288e-05, -476), Vector2(-2.670288e-05, -171.99997)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.97),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pkh6x"]
+_data = {
+&"RESET": SubResource("Animation_yvgrb"),
+&"logo_appear": SubResource("Animation_hm1vx")
+}
+
+[sub_resource type="Theme" id="Theme_rhxwr"]
+default_base_scale = 5.75
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_8ok1x"]
+color = Color(1, 1, 1, 1)
+thickness = 6
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_hm1vx"]
+color = Color(0.003921569, 0.20784314, 0.8784314, 1)
+thickness = 6
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_yvgrb"]
+color = Color(0.003921569, 0.20784314, 0.8784314, 1)
+thickness = 6
+
+[node name="Main menu" type="Control" unique_id=945309700]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_4gvpj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=425785242]
+root_node = NodePath("../Titulo")
+libraries/ = SubResource("AnimationLibrary_pkh6x")
+
+[node name="audio_music" type="AudioStreamPlayer2D" parent="." unique_id=336691838]
+
+[node name="audio_btn" type="AudioStreamPlayer2D" parent="." unique_id=620815102]
+stream = ExtResource("2_hm1vx")
+
+[node name="Fondo" type="Sprite2D" parent="." unique_id=372132432]
+position = Vector2(0, -1.859665e-05)
+scale = Vector2(1.125, 1.1592128)
+texture = ExtResource("2_yvgrb")
+
+[node name="Titulo" type="Sprite2D" parent="." unique_id=1633533106]
+position = Vector2(-2.670288e-05, -492)
+scale = Vector2(0.81141156, 0.81808925)
+texture = ExtResource("2_nn2uy")
+
+[node name="Acomodar botones" type="VBoxContainer" parent="." unique_id=867963407]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -200.04443
+offset_top = -59.0
+offset_right = 200.04446
+offset_bottom = 278.0
+grow_horizontal = 2
+theme_override_constants/separation = 45
+alignment = 1
+
+[node name="Jugar boton" type="Button" parent="Acomodar botones" unique_id=1717040670]
+layout_mode = 2
+theme = SubResource("Theme_rhxwr")
+theme_override_font_sizes/font_size = 50
+text = "Jugar"
+flat = true
+
+[node name="Opciones boton" type="Button" parent="Acomodar botones" unique_id=973565437]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Opciones"
+flat = true
+
+[node name="Salir boton" type="Button" parent="Acomodar botones" unique_id=1917629939]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Salir"
+flat = true
+
+[node name="Blur" type="ColorRect" parent="." unique_id=789848536]
+visible = false
+layout_mode = 1
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+color = Color(0.011764706, 0.011764706, 0.011764706, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Jugar" type="Panel" parent="." unique_id=1943051828]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -254.0
+offset_right = 320.0
+offset_bottom = 254.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Fondo" type="Sprite2D" parent="Jugar" unique_id=862375592]
+position = Vector2(319, 253.99998)
+scale = Vector2(0.6230468, 0.9087657)
+texture = ExtResource("2_yvgrb")
+
+[node name="Flecha salir (cambiar img)" type="TextureButton" parent="Jugar" unique_id=479087207]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 130.0
+offset_bottom = 64.0
+texture_normal = ExtResource("4_8ok1x")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Acomodar botones" type="VBoxContainer" parent="Jugar" unique_id=510908349]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -196.0
+offset_right = 256.0
+offset_bottom = 188.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 80
+alignment = 1
+
+[node name="Partida" type="Button" parent="Jugar/Acomodar botones" unique_id=646202168]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Partida rápida"
+flat = true
+
+[node name="Nacional" type="Button" parent="Jugar/Acomodar botones" unique_id=1536817550]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Top Nacional"
+flat = true
+
+[node name="Tutorial" type="Button" parent="Jugar/Acomodar botones" unique_id=161149268]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Tutorial"
+flat = true
+
+[node name="Opciones" type="Panel" parent="." unique_id=346448607]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -254.0
+offset_right = 320.0
+offset_bottom = 254.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Fondo" type="Sprite2D" parent="Opciones" unique_id=1686988145]
+position = Vector2(319, 254)
+scale = Vector2(0.6230468, 0.9087657)
+texture = ExtResource("2_yvgrb")
+
+[node name="Op" type="Label" parent="Opciones" unique_id=675369189]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -318.5
+offset_right = 318.5
+offset_bottom = 96.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 70
+text = "Opciones"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Vol g" type="Label" parent="Opciones" unique_id=1410282459]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -136.0
+offset_top = 122.0
+offset_right = 136.0
+offset_bottom = 197.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 26
+text = "Volumen general
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Flecha salir (cambiar img)" type="TextureButton" parent="Opciones" unique_id=64409175]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 130.0
+offset_bottom = 64.0
+texture_normal = ExtResource("4_8ok1x")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Control de volumen" type="HSlider" parent="Opciones" unique_id=1139117206]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -190.0
+offset_top = -91.0
+offset_right = 192.0
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/slider = SubResource("StyleBoxLine_8ok1x")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_hm1vx")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_yvgrb")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("5_yvgrb")
+
+[node name="Pantalla conpleta" type="CheckButton" parent="Opciones" unique_id=1530767853]
+layout_mode = 0
+offset_left = 143.5
+offset_top = 242.0
+offset_right = 511.5
+offset_bottom = 305.0
+theme_override_font_sizes/font_size = 29
+button_pressed = true
+text = "Pantalla completa"
+
+[node name="Salir" type="Panel" parent="." unique_id=1631513967]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -254.0
+offset_right = 320.0
+offset_bottom = 254.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Fondo" type="Sprite2D" parent="Salir" unique_id=1611040992]
+position = Vector2(319, 256.99997)
+scale = Vector2(0.6230468, 0.9194991)
+texture = ExtResource("2_yvgrb")
+
+[node name="Estas seguro" type="Label" parent="Salir" unique_id=48078210]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -319.0
+offset_top = -154.0
+offset_right = 318.0
+offset_bottom = -68.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "Estas seguro que quieres salir?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Confirmar" type="Button" parent="Salir" unique_id=2105418076]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 64.0
+offset_top = -34.0
+offset_right = 192.0
+offset_bottom = 94.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 80
+text = "Si"
+flat = true
+
+[node name="Cancelar" type="Button" parent="Salir" unique_id=1909723766]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -30.0
+offset_right = -64.0
+offset_bottom = 96.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 80
+text = "No"
+flat = true
+
+[node name="main_menu_music" type="AudioStreamPlayer" parent="." unique_id=344225502]
+
+[connection signal="pressed" from="Acomodar botones/Jugar boton" to="." method="_on_jugar_boton_pressed"]
+[connection signal="pressed" from="Acomodar botones/Opciones boton" to="." method="_on_opciones_boton_pressed"]
+[connection signal="pressed" from="Acomodar botones/Salir boton" to="." method="_on_salir_boton_pressed"]
+[connection signal="pressed" from="Jugar/Flecha salir (cambiar img)" to="." method="_on_flecha_salir_pressed"]
+[connection signal="pressed" from="Opciones/Flecha salir (cambiar img)" to="." method="_on_flecha_salir2_pressed"]
+[connection signal="value_changed" from="Opciones/Control de volumen" to="Opciones/Control de volumen" method="_on_value_changed"]
+[connection signal="toggled" from="Opciones/Pantalla conpleta" to="." method="_on_pantalla_conpleta_toggled"]
+[connection signal="pressed" from="Salir/Confirmar" to="." method="_on_confirmar_pressed"]
+[connection signal="pressed" from="Salir/Cancelar" to="." method="_on_cancelar_pressed"]
