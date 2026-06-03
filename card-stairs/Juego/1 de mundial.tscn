@@ -4,21 +4,21 @@
 [ext_resource type="Script" uid="uid://dlj3tqvq3ryoy" path="res://Juego/Card.gd" id="1_xlbd3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xlbd3"]
-size = Vector2(256, 420.10257)
+size = Vector2(410.2564, 662.97437)
 
 [node name="Card" type="Node2D" unique_id=1898567895]
 script = ExtResource("1_xlbd3")
 
 [node name="card_image" type="Sprite2D" parent="." unique_id=1309397596]
-position = Vector2(-4.000003, -2.1457672e-06)
-scale = Vector2(0.27222222, 0.265625)
+position = Vector2(-1.1920929e-07, -5.9604645e-08)
+scale = Vector2(0.43370616, 0.42319542)
 texture = ExtResource("1_w4po3")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=2013378786]
 scale = Vector2(0.3046875, 0.3046875)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=815986307]
-position = Vector2(-3.6190718e-06, 0)
+position = Vector2(21.333336, 0)
 shape = SubResource("RectangleShape2D_xlbd3")
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
