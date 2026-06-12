@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dyd87ho356ycd"]
 
 [ext_resource type="Texture2D" uid="uid://cm1x1a6v6jxgu" path="res://Juego/imgs/Carta (1).png" id="1_w4po3"]
-[ext_resource type="Script" uid="uid://dlj3tqvq3ryoy" path="res://Juego/Card.gd" id="1_xlbd3"]
+[ext_resource type="Script" uid="uid://dlj3tqvq3ryoy" path="res://Juego/scripts/Card.gd" id="1_xlbd3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xlbd3"]
 size = Vector2(410.2564, 662.97437)
