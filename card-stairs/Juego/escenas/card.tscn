@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://udyo3lweteeb"]
 
 [ext_resource type="Texture2D" uid="uid://cm1x1a6v6jxgu" path="res://Juego/imgs/Carta (1).png" id="1_0hena"]
+[ext_resource type="Script" uid="uid://disfqfmkjm0oa" path="res://Juego/scripts/Card.gd" id="1_ffopl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xlbd3"]
 size = Vector2(256, 420.10257)
 
 [node name="Card" type="Node2D" unique_id=726674187]
+script = ExtResource("1_ffopl")
 
 [node name="card_image" type="Sprite2D" parent="." unique_id=59412873]
 position = Vector2(-4.000003, -2.1457672e-06)
