@@ -111,7 +111,7 @@ texture = ExtResource("2_yvgrb")
 
 [node name="Titulo" type="Sprite2D" parent="." unique_id=1633533106]
 position = Vector2(-2.670288e-05, -492)
-scale = Vector2(0.81141156, 0.81808925)
+scale = Vector2(0.6986877, 0.7044376)
 texture = ExtResource("2_nn2uy")
 
 [node name="Acomodar botones" type="VBoxContainer" parent="." unique_id=867963407]
@@ -120,9 +120,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -200.04443
-offset_top = -59.0
+offset_top = -117.0
 offset_right = 200.04446
-offset_bottom = 278.0
+offset_bottom = 326.0
 grow_horizontal = 2
 theme_override_constants/separation = 45
 alignment = 1
@@ -138,6 +138,12 @@ flat = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "Opciones"
+flat = true
+
+[node name="Puntuaciones boton" type="Button" parent="Acomodar botones" unique_id=824526679]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Puntuaciones"
 flat = true
 
 [node name="Salir boton" type="Button" parent="Acomodar botones" unique_id=1917629939]
