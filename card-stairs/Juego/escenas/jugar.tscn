@@ -16,15 +16,15 @@ size = Vector2(247.28987, 380.31204)
 script = ExtResource("1_y40m8")
 
 [node name="CardSlot" parent="." unique_id=272516031 instance=ExtResource("3_aj2k0")]
-position = Vector2(3, -4)
+position = Vector2(1388, 269)
 scale = Vector2(0.73193455, 0.8519321)
 
 [node name="PlayerHand" type="Node2D" parent="." unique_id=306979003]
 script = ExtResource("4_4sxlw")
 
 [node name="Deck" type="Node2D" parent="." unique_id=1409444760]
-position = Vector2(150, 890)
-scale = Vector2(0.73193455, 0.8519321)
+position = Vector2(211, 278)
+scale = Vector2(0.59447104, 0.6919321)
 script = ExtResource("4_knann")
 
 [node name="Sprite2D" type="Sprite2D" parent="Deck" unique_id=1293792928]
@@ -32,6 +32,8 @@ position = Vector2(-4.098727, 4.69521)
 texture = ExtResource("5_0oq73")
 
 [node name="Area2D" type="Area2D" parent="Deck" unique_id=1027902731]
+collision_layer = 4
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/Area2D" unique_id=1643377008]
 position = Vector2(-15.711777, 2.3476563)
