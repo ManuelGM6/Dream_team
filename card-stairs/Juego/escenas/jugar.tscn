@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dtp8m2r87xrnt"]
 
-[ext_resource type="Script" uid="uid://djwe6y11pbyi6" path="res://Juego/scripts/card_manager.gd" id="1_y40m8"]
-[ext_resource type="PackedScene" uid="uid://bm8616jlqrcwj" path="res://Juego/escenas/cardSlot.tscn" id="3_aj2k0"]
+[ext_resource type="Script" uid="uid://djwe6y11pbyi6" path="res://Juego/scripts/CardManager.gd" id="1_y40m8"]
+[ext_resource type="PackedScene" uid="uid://bm8616jlqrcwj" path="res://Juego/escenas/CardSlot.tscn" id="3_aj2k0"]
 [ext_resource type="Script" uid="uid://c13tf7rsrkmtq" path="res://Juego/scripts/PlayerHand.gd" id="4_4sxlw"]
 [ext_resource type="Script" uid="uid://ckgh4hvvc87mk" path="res://Juego/Deck.gd" id="4_knann"]
 [ext_resource type="Texture2D" uid="uid://8lt81fn8ko0y" path="res://Juego/imgs/mazo.png" id="5_0oq73"]
@@ -23,19 +23,23 @@ scale = Vector2(0.73193455, 0.8519321)
 script = ExtResource("4_4sxlw")
 
 [node name="Deck" type="Node2D" parent="." unique_id=1409444760]
-position = Vector2(211, 278)
+z_index = -2
+position = Vector2(173, 868.00006)
 scale = Vector2(0.59447104, 0.6919321)
 script = ExtResource("4_knann")
 
 [node name="Sprite2D" type="Sprite2D" parent="Deck" unique_id=1293792928]
+z_index = -2
 position = Vector2(-4.098727, 4.69521)
 texture = ExtResource("5_0oq73")
 
 [node name="Area2D" type="Area2D" parent="Deck" unique_id=1027902731]
+z_index = -2
 collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/Area2D" unique_id=1643377008]
+z_index = -2
 position = Vector2(-15.711777, 2.3476563)
 shape = SubResource("RectangleShape2D_84c28")
 

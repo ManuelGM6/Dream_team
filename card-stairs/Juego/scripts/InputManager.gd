@@ -23,8 +23,8 @@ func _input(event):
 			
 func raycast_at_cursor():
 	var space_state = get_world_2d().direct_space_state
-	
 	var parameters = PhysicsPointQueryParameters2D.new()
+	
 	parameters.position = get_global_mouse_position()
 	parameters.collide_with_areas = true
 	var result = space_state.intersect_point(parameters)
@@ -35,6 +35,7 @@ func raycast_at_cursor():
 			var card_found = result[0].collider.get_parent()
 			if card_found:
 				card_manager_reference.start_drag(card_found)
-			elif result_collision_mask == COLLISION_MASK_DECK:
+		elif result_collision_mask == COLLISION_MASK_DECK:
+				print ("aña")
 				deck_reference.draw_card()
 				#revisar esto
