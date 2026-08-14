@@ -105,13 +105,13 @@ libraries/ = SubResource("AnimationLibrary_pkh6x")
 stream = ExtResource("2_hm1vx")
 
 [node name="Fondo" type="Sprite2D" parent="." unique_id=372132432]
-position = Vector2(0, -1.859665e-05)
-scale = Vector2(1.125, 1.1592128)
+position = Vector2(17.777576, 9.999942)
+scale = Vector2(1.9236112, 1.9821109)
 texture = ExtResource("2_yvgrb")
 
 [node name="Titulo" type="Sprite2D" parent="." unique_id=1633533106]
 position = Vector2(-2.670288e-05, -492)
-scale = Vector2(0.6986877, 0.7044376)
+scale = Vector2(0.8815494, 0.88880414)
 texture = ExtResource("2_nn2uy")
 
 [node name="Acomodar botones" type="VBoxContainer" parent="." unique_id=867963407]
@@ -393,6 +393,7 @@ flat = true
 [connection signal="pressed" from="Acomodar botones/Opciones boton" to="." method="_on_opciones_boton_pressed"]
 [connection signal="pressed" from="Acomodar botones/Salir boton" to="." method="_on_salir_boton_pressed"]
 [connection signal="pressed" from="Jugar/Flecha salir (cambiar img)" to="." method="_on_flecha_salir_pressed"]
+[connection signal="pressed" from="Jugar/Acomodar botones/Partida" to="." method="_on_partida_pressed"]
 [connection signal="pressed" from="Opciones/Flecha salir (cambiar img)" to="." method="_on_flecha_salir2_pressed"]
 [connection signal="value_changed" from="Opciones/Control de volumen" to="Opciones/Control de volumen" method="_on_value_changed"]
 [connection signal="toggled" from="Opciones/Pantalla conpleta" to="." method="_on_pantalla_conpleta_toggled"]

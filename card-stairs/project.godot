@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Card Stairs"
-run/main_scene="uid://dtp8m2r87xrnt"
+run/main_scene="uid://btveh21nv75e0"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -23,7 +23,7 @@ buses/default_bus_layout="uid://bamjy7ng336je"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=3
+window/size/mode=4
 window/subwindows/embed_subwindows=false
 window/stretch/mode="canvas_items"
 

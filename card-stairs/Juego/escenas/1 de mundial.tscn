@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://dyd87ho356ycd"]
+[gd_scene format=3 uid="uid://dj18pluusi6r3"]
 
-[ext_resource type="Texture2D" uid="uid://cm1x1a6v6jxgu" path="res://Juego/imgs/Carta (1).png" id="1_w4po3"]
+[ext_resource type="Texture2D" path="res://Juego/imgs/Cards/Mundial/1.png" id="1_w4po3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xlbd3"]
 size = Vector2(410.2564, 662.97437)

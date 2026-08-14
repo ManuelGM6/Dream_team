@@ -25,6 +25,9 @@ func _on_jugar_boton_pressed():
 	$"Jugar".modulate.a = 0
 	tween.tween_property($"Jugar", "modulate:a", 1.0 , 0.5)
 
+func _on_partida_pressed() -> void:
+	get_tree().change_scene_to_file("res://Juego/escenas/jugar.tscn")
+
 func cancelar_animacion_jugar():
 	$"Jugar".visible = false
 	$"Jugar".modulate.a = 1

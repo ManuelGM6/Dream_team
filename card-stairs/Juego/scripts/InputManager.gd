@@ -11,7 +11,7 @@ var deck_reference
 
 func _ready() -> void:
 	card_manager_reference = $"../CardManager"
-	deck_reference = $"../Deck"
+	deck_reference = $"../Deck"	
 	
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
@@ -36,6 +36,4 @@ func raycast_at_cursor():
 			if card_found:
 				card_manager_reference.start_drag(card_found)
 		elif result_collision_mask == COLLISION_MASK_DECK:
-				print ("aña")
 				deck_reference.draw_card()
-				#revisar esto
