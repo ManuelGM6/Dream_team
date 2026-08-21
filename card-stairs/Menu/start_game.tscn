@@ -5,10 +5,15 @@
 [ext_resource type="Texture2D" uid="uid://c38q2l858gq5j" path="res://Menu/imgs/titulo.png" id="2_nn2uy"]
 [ext_resource type="Texture2D" uid="uid://c1q73n0r1txur" path="res://Menu/imgs/fondo.png" id="2_yvgrb"]
 [ext_resource type="Texture2D" uid="uid://byos3a0nnarea" path="res://Menu/imgs/flecha.png" id="4_8ok1x"]
+[ext_resource type="FontFile" uid="uid://b73ekw0uvo80j" path="res://fonts/Sancreek-Regular.ttf" id="5_pkh6x"]
 [ext_resource type="Script" uid="uid://b137wlli2olrg" path="res://Menu/control_de_volumen.gd" id="5_yvgrb"]
 
 [sub_resource type="Animation" id="Animation_yvgrb"]
-length = 1.2666667
+length = 1.3
+
+[sub_resource type="Animation" id="Animation_hm1vx"]
+resource_name = "logo_appear"
+length = 1.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -16,10 +21,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.1666666),
+"times": PackedFloat32Array(0, 1.0666667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-2.670288e-05, -492), Vector2(-2.670288e-05, -180)]
+"values": [Vector2(-2.670288e-05, -492), Vector2(-3.0517578e-05, -260)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -29,33 +34,6 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 1.0666667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 0.0]
-}
-
-[sub_resource type="Animation" id="Animation_hm1vx"]
-resource_name = "logo_appear"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.97),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-2.670288e-05, -476), Vector2(-2.670288e-05, -171.99997)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.97),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 0.0]
@@ -110,7 +88,7 @@ scale = Vector2(1.9236112, 1.9821109)
 texture = ExtResource("2_yvgrb")
 
 [node name="Titulo" type="Sprite2D" parent="." unique_id=1633533106]
-position = Vector2(-2.670288e-05, -492)
+position = Vector2(-3.0517578e-05, -260)
 scale = Vector2(0.8815494, 0.88880414)
 texture = ExtResource("2_nn2uy")
 
@@ -120,9 +98,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -200.04443
-offset_top = -117.0
+offset_top = -61.0
 offset_right = 200.04446
-offset_bottom = 326.0
+offset_bottom = 390.0
 grow_horizontal = 2
 theme_override_constants/separation = 45
 alignment = 1
@@ -130,24 +108,33 @@ alignment = 1
 [node name="Jugar boton" type="Button" parent="Acomodar botones" unique_id=1717040670]
 layout_mode = 2
 theme = SubResource("Theme_rhxwr")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 9
+theme_override_fonts/font = ExtResource("5_pkh6x")
 theme_override_font_sizes/font_size = 50
 text = "Jugar"
 flat = true
 
 [node name="Opciones boton" type="Button" parent="Acomodar botones" unique_id=973565437]
 layout_mode = 2
+theme_override_constants/outline_size = 9
+theme_override_fonts/font = ExtResource("5_pkh6x")
 theme_override_font_sizes/font_size = 50
 text = "Opciones"
 flat = true
 
 [node name="Puntuaciones boton" type="Button" parent="Acomodar botones" unique_id=824526679]
 layout_mode = 2
+theme_override_constants/outline_size = 9
+theme_override_fonts/font = ExtResource("5_pkh6x")
 theme_override_font_sizes/font_size = 50
 text = "Puntuaciones"
 flat = true
 
 [node name="Salir boton" type="Button" parent="Acomodar botones" unique_id=1917629939]
 layout_mode = 2
+theme_override_constants/outline_size = 9
+theme_override_fonts/font = ExtResource("5_pkh6x")
 theme_override_font_sizes/font_size = 50
 text = "Salir"
 flat = true
@@ -155,10 +142,11 @@ flat = true
 [node name="Blur" type="ColorRect" parent="." unique_id=789848536]
 visible = false
 layout_mode = 1
-offset_left = -576.0
-offset_top = -324.0
-offset_right = 576.0
-offset_bottom = 324.0
+offset_left = -1015.6996
+offset_top = -582.0
+offset_right = 541.3766
+offset_bottom = 304.76465
+scale = Vector2(1.3199997, 1.36)
 color = Color(0.011764706, 0.011764706, 0.011764706, 1)
 metadata/_edit_use_anchors_ = true
 
@@ -209,18 +197,24 @@ alignment = 1
 
 [node name="Partida" type="Button" parent="Jugar/Acomodar botones" unique_id=646202168]
 layout_mode = 2
+theme_override_constants/outline_size = 9
+theme_override_fonts/font = ExtResource("5_pkh6x")
 theme_override_font_sizes/font_size = 50
 text = "Partida rápida"
 flat = true
 
 [node name="Nacional" type="Button" parent="Jugar/Acomodar botones" unique_id=1536817550]
 layout_mode = 2
+theme_override_constants/outline_size = 9
+theme_override_fonts/font = ExtResource("5_pkh6x")
 theme_override_font_sizes/font_size = 50
 text = "Top Nacional"
 flat = true
 
 [node name="Tutorial" type="Button" parent="Jugar/Acomodar botones" unique_id=161149268]
 layout_mode = 2
+theme_override_constants/outline_size = 9
+theme_override_fonts/font = ExtResource("5_pkh6x")
 theme_override_font_sizes/font_size = 50
 text = "Tutorial"
 flat = true
@@ -241,6 +235,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Fondo" type="Sprite2D" parent="Opciones" unique_id=1686988145]
+visible = false
 position = Vector2(319, 254)
 scale = Vector2(0.6230468, 0.9087657)
 texture = ExtResource("2_yvgrb")
@@ -254,6 +249,8 @@ offset_left = -318.5
 offset_right = 318.5
 offset_bottom = 96.0
 grow_horizontal = 2
+theme_override_constants/outline_size = 9
+theme_override_fonts/font = ExtResource("5_pkh6x")
 theme_override_font_sizes/font_size = 70
 text = "Opciones"
 horizontal_alignment = 1
@@ -269,6 +266,8 @@ offset_top = 122.0
 offset_right = 136.0
 offset_bottom = 197.0
 grow_horizontal = 2
+theme_override_constants/outline_size = 9
+theme_override_fonts/font = ExtResource("5_pkh6x")
 theme_override_font_sizes/font_size = 26
 text = "Volumen general
 "
@@ -311,6 +310,8 @@ offset_left = 143.5
 offset_top = 242.0
 offset_right = 511.5
 offset_bottom = 305.0
+theme_override_constants/outline_size = 9
+theme_override_fonts/font = ExtResource("5_pkh6x")
 theme_override_font_sizes/font_size = 29
 button_pressed = true
 text = "Pantalla completa"
@@ -348,6 +349,8 @@ offset_right = 318.0
 offset_bottom = -68.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/outline_size = 9
+theme_override_fonts/font = ExtResource("5_pkh6x")
 theme_override_font_sizes/font_size = 40
 text = "Estas seguro que quieres salir?"
 horizontal_alignment = 1
@@ -366,6 +369,8 @@ offset_right = 192.0
 offset_bottom = 94.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/outline_size = 9
+theme_override_fonts/font = ExtResource("5_pkh6x")
 theme_override_font_sizes/font_size = 80
 text = "Si"
 flat = true
@@ -383,6 +388,8 @@ offset_right = -64.0
 offset_bottom = 96.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/outline_size = 9
+theme_override_fonts/font = ExtResource("5_pkh6x")
 theme_override_font_sizes/font_size = 80
 text = "No"
 flat = true

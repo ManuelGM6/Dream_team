@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dtp8m2r87xrnt"]
 
+[ext_resource type="Texture2D" uid="uid://dkdir76ycj6ne" path="res://Juego/imgs/fondo.png" id="1_0oq73"]
 [ext_resource type="Script" uid="uid://djwe6y11pbyi6" path="res://Juego/scripts/CardManager.gd" id="1_y40m8"]
 [ext_resource type="PackedScene" uid="uid://bm8616jlqrcwj" path="res://Juego/escenas/cardSlot.tscn" id="3_aj2k0"]
 [ext_resource type="Script" uid="uid://c13tf7rsrkmtq" path="res://Juego/scripts/PlayerHand.gd" id="4_4sxlw"]
@@ -11,6 +12,12 @@
 size = Vector2(247.28987, 380.31204)
 
 [node name="Main" type="Node2D" unique_id=1439613776]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=423139785]
+z_index = -10
+position = Vector2(960.9999, 540.5)
+scale = Vector2(1.2831843, 1.0654297)
+texture = ExtResource("1_0oq73")
 
 [node name="CardManager" type="Node2D" parent="." unique_id=1053948240]
 script = ExtResource("1_y40m8")

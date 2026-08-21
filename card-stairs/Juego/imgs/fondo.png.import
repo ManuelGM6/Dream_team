@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfoubcy82ua4r"
-path="res://.godot/imported/Carta (2).png-ec99dd1dc4ba36c8c9ba66e1b7990414.ctex"
+uid="uid://dkdir76ycj6ne"
+path="res://.godot/imported/fondo.png-8de846c37d0eae393cbdcb18a632d6d6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Juego/imgs/Carta (2).png"
-dest_files=["res://.godot/imported/Carta (2).png-ec99dd1dc4ba36c8c9ba66e1b7990414.ctex"]
+source_file="res://Juego/imgs/fondo.png"
+dest_files=["res://.godot/imported/fondo.png-8de846c37d0eae393cbdcb18a632d6d6.ctex"]
 
 [params]
 
