@@ -2,6 +2,7 @@ extends Node2D
 
 const CARD_SCENE_PATH = "res://Juego/escenas/card.tscn"
 const CARD_DRAW_SPEED = 0.2
+const CANT_CARTAS = 7
 var player_deck = []
 var card_database_reference
 
@@ -9,6 +10,12 @@ var card_database_reference
 func _ready() -> void:
 	card_database_reference = preload("res://Juego/scripts/CardDatabase.gd")
 	create_deck()
+	repartir_cartas()
+	
+
+func repartir_cartas():
+	for i in range(CANT_CARTAS):
+		draw_card()
 
 func draw_card():
 	if player_deck.size() == 1:

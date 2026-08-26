@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://ckgh4hvvc87mk" path="res://Juego/scripts/Deck.gd" id="4_knann"]
 [ext_resource type="Texture2D" uid="uid://8lt81fn8ko0y" path="res://Juego/imgs/mazo.png" id="5_0oq73"]
 [ext_resource type="Script" uid="uid://7x7hoaa3fu04" path="res://Juego/scripts/InputManager.gd" id="6_kx0tg"]
+[ext_resource type="Texture2D" uid="uid://be0n71gy7s73c" path="res://Juego/imgs/Mesa212_DreamTeam.png" id="8_kx0tg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_84c28"]
 size = Vector2(247.28987, 380.31204)
@@ -23,7 +24,7 @@ texture = ExtResource("1_0oq73")
 script = ExtResource("1_y40m8")
 
 [node name="CardSlot" parent="." unique_id=272516031 instance=ExtResource("3_aj2k0")]
-position = Vector2(1388, 269)
+position = Vector2(1157, 403)
 scale = Vector2(0.73193455, 0.8519321)
 
 [node name="PlayerHand" type="Node2D" parent="." unique_id=306979003]
@@ -31,7 +32,7 @@ script = ExtResource("4_4sxlw")
 
 [node name="Deck" type="Node2D" parent="." unique_id=1409444760]
 z_index = -2
-position = Vector2(150, 890)
+position = Vector2(892, 389)
 scale = Vector2(0.59447104, 0.6919321)
 script = ExtResource("4_knann")
 
@@ -59,6 +60,13 @@ offset_right = 24.271332
 offset_bottom = 12.0
 scale = Vector2(2, 2)
 text = "0"
+metadata/_edit_use_anchors_ = true
 
 [node name="InputManager" type="Node2D" parent="." unique_id=1871878239]
 script = ExtResource("6_kx0tg")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1609127329]
+z_index = -10
+position = Vector2(1023, 208)
+scale = Vector2(4.140086, 7.4130893)
+texture = ExtResource("8_kx0tg")
