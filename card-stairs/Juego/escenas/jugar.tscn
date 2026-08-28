@@ -14,7 +14,7 @@ size = Vector2(247.28987, 380.31204)
 
 [node name="Main" type="Node2D" unique_id=1439613776]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=423139785]
+[node name="Fondo" type="Sprite2D" parent="." unique_id=423139785]
 z_index = -10
 position = Vector2(960.9999, 540.5)
 scale = Vector2(1.2831843, 1.0654297)
@@ -32,11 +32,11 @@ script = ExtResource("4_4sxlw")
 
 [node name="Deck" type="Node2D" parent="." unique_id=1409444760]
 z_index = -2
-position = Vector2(892, 389)
+position = Vector2(892, 400)
 scale = Vector2(0.59447104, 0.6919321)
 script = ExtResource("4_knann")
 
-[node name="Sprite2D" type="Sprite2D" parent="Deck" unique_id=1293792928]
+[node name="Mazo" type="Sprite2D" parent="Deck" unique_id=1293792928]
 z_index = -2
 position = Vector2(-4.098727, 4.69521)
 texture = ExtResource("5_0oq73")
@@ -65,7 +65,7 @@ metadata/_edit_use_anchors_ = true
 [node name="InputManager" type="Node2D" parent="." unique_id=1871878239]
 script = ExtResource("6_kx0tg")
 
-[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1609127329]
+[node name="Mesa" type="Sprite2D" parent="." unique_id=1609127329]
 z_index = -10
 position = Vector2(1023, 208)
 scale = Vector2(4.140086, 7.4130893)

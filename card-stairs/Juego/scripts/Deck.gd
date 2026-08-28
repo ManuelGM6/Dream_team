@@ -18,11 +18,15 @@ func repartir_cartas():
 		draw_card()
 
 func draw_card():
+	if $"../PlayerHand".player_hand.size() >= 8:
+		return
+
 	if player_deck.size() == 1:
 		$Area2D/CollisionShape2D.disabled = true
 		$Sprite2D.visible = false
 		$RichTextLabel.visible = false
-		
+
+	
 	var card = player_deck.pop_front()
 	var card_scene = preload(CARD_SCENE_PATH)
 	var new_card = card_scene.instantiate()
