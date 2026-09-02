@@ -1,6 +1,6 @@
 extends Node2D
 
-const CARD_SCENE_PATH = "res://Juego/escenas/card.tscn"
+const CARD_SCENE_PATH = "res://Juego/escenas/Card.tscn"
 const CARD_DRAW_SPEED = 0.2
 const CANT_CARTAS = 7
 var player_deck = []
@@ -48,9 +48,9 @@ func create_deck():
 	$RichTextLabel.text = str(player_deck.size())
 
 func get_card_texture(card):
-	var ruta = "res://Juego/imgs/Cards/%s/%d_%s.jpg" % [
+	var ruta = "res://Juego/imgs/Cards/%s/%s_%d.jpg" % [
 		card.palo,
-		card.numero,
-		card.palo
+		card.palo,
+		card.numero
 	]
 	return load(ruta)

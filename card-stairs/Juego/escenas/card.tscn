@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://udyo3lweteeb"]
 
 [ext_resource type="Script" uid="uid://disfqfmkjm0oa" path="res://Juego/scripts/Card.gd" id="1_xu01d"]
-[ext_resource type="Texture2D" uid="uid://bwdsocvu5mxh2" path="res://Juego/imgs/Cards/Basto/1_Basto.jpg" id="2_heary"]
 [ext_resource type="Texture2D" uid="uid://8lt81fn8ko0y" path="res://Juego/imgs/mazo.png" id="2_vxkqo"]
+[ext_resource type="Texture2D" uid="uid://cyne4i0fq1ore" path="res://Juego/imgs/card_shadow.png" id="3_shadow"]
+[ext_resource type="Texture2D" uid="uid://0hekfshwnl2h" path="res://Juego/imgs/Cards/bastos/bastos_1.jpg" id="4_vxkqo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xlbd3"]
 size = Vector2(233.0256, 334.76917)
@@ -19,7 +20,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0.29673326, 0.28027236)]
+"values": [Vector2(0.074183315, 0.07006809)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -55,7 +56,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1.022, 1)]
+"values": [Vector2(0.2555, 0.25)]
 }
 
 [sub_resource type="Animation" id="Animation_fsaeb"]
@@ -70,7 +71,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(0.3, 0.26912725), Vector2(0.1, 0.3), Vector2(0.2762536, 0.24492002)]
+"values": [Vector2(0.075, 0.06728181), Vector2(0.025, 0.075), Vector2(0.0690634, 0.061230004)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -106,7 +107,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(1.022, 1), Vector2(0.1, 1), Vector2(1, 1)]
+"values": [Vector2(0.2555, 0.25), Vector2(0.025, 0.25), Vector2(0.25, 0.25)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6n1ef"]
@@ -117,23 +118,30 @@ _data = {
 
 [node name="Card" type="Node2D" unique_id=726674187]
 position = Vector2(150, 890)
-scale = Vector2(2.43, 2.43)
+scale = Vector2(0.75, 0.75)
 script = ExtResource("1_xu01d")
 
+[node name="CardShadow" type="Sprite2D" parent="." unique_id=900686991]
+modulate = Color(1, 1, 1, 0.85)
+z_index = -2
+position = Vector2(6, 16)
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("3_shadow")
+
 [node name="CardBackImage" type="Sprite2D" parent="." unique_id=1554873185]
-position = Vector2(-3.8146973e-06, 4.695)
-scale = Vector2(0.29673326, 0.28027236)
+position = Vector2(8.547014, 15.496227)
+scale = Vector2(0.074183315, 0.07006809)
 texture = ExtResource("2_vxkqo")
 
 [node name="CardImage" type="Sprite2D" parent="." unique_id=59412873]
 z_index = -1
 position = Vector2(-4.000003, 4.695)
-scale = Vector2(1.022, 1)
-texture = ExtResource("2_heary")
+scale = Vector2(0.2555, 0.25)
+texture = ExtResource("4_vxkqo")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1024368242]
-position = Vector2(0, 4.695)
-scale = Vector2(0.3046875, 0.3046875)
+position = Vector2(4.526745, 4.695)
+scale = Vector2(0.97, 0.97)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=828469110]
 position = Vector2(-11.487183, 4.695)

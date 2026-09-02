@@ -39,6 +39,7 @@ script = ExtResource("4_knann")
 [node name="Mazo" type="Sprite2D" parent="Deck" unique_id=1293792928]
 z_index = -2
 position = Vector2(-4.098727, 4.69521)
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("5_0oq73")
 
 [node name="Area2D" type="Area2D" parent="Deck" unique_id=1027902731]
