@@ -13,11 +13,14 @@ config_version=5
 config/name="Card Stairs"
 run/main_scene="uid://btveh21nv75e0"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
 
 [audio]
 
 buses/default_bus_layout="uid://bamjy7ng336je"
+
+[autoload]
+
+GameState="*res://GameState.gd"
 
 [display]
 

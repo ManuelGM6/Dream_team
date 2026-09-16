@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://Juego/scripts/BotHand.gd" id="1_bothand"]
+
+[node name="BotHand" type="Node2D"]
+script = ExtResource("1_bothand")
+
+[node name="CardCountLabel" type="Label" parent="."]
+offset_left = -60.0
+offset_top = -20.0
+offset_right = 60.0
+offset_bottom = 10.0
+horizontal_alignment = 1
+text = "Bot: 0 cartas"

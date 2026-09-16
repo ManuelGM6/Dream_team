@@ -2,12 +2,18 @@
 
 [ext_resource type="Texture2D" uid="uid://dkdir76ycj6ne" path="res://Juego/imgs/fondo.png" id="1_0oq73"]
 [ext_resource type="Script" uid="uid://djwe6y11pbyi6" path="res://Juego/scripts/CardManager.gd" id="1_y40m8"]
-[ext_resource type="PackedScene" uid="uid://bm8616jlqrcwj" path="res://Juego/escenas/cardSlot.tscn" id="3_aj2k0"]
+[ext_resource type="PackedScene" path="res://Juego/escenas/Pozo.tscn" id="3_pozo"]
+[ext_resource type="PackedScene" path="res://Juego/escenas/BotHand.tscn" id="3_bothand"]
+[ext_resource type="Script" path="res://Juego/scripts/GameManager.gd" id="3_gamemanager"]
+[ext_resource type="Script" path="res://Juego/scripts/BotPlayer.gd" id="3_botplayer"]
 [ext_resource type="Script" uid="uid://c13tf7rsrkmtq" path="res://Juego/scripts/PlayerHand.gd" id="4_4sxlw"]
 [ext_resource type="Script" uid="uid://ckgh4hvvc87mk" path="res://Juego/scripts/Deck.gd" id="4_knann"]
 [ext_resource type="Texture2D" uid="uid://8lt81fn8ko0y" path="res://Juego/imgs/mazo.png" id="5_0oq73"]
 [ext_resource type="Script" uid="uid://7x7hoaa3fu04" path="res://Juego/scripts/InputManager.gd" id="6_kx0tg"]
 [ext_resource type="Texture2D" uid="uid://be0n71gy7s73c" path="res://Juego/imgs/Mesa212_DreamTeam.png" id="8_kx0tg"]
+[ext_resource type="AudioStream" uid="uid://c50otny2r7dax" path="res://Juego/sonidos/MusicaJuego.wav" id="9_84c28"]
+[ext_resource type="AudioStream" uid="uid://cwqgkwba7ciiu" path="res://Juego/sonidos/TomarYDejarCartas.wav" id="10_cartas"]
+[ext_resource type="AudioStream" uid="uid://klc1t6d1kuud" path="res://Juego/sonidos/MezclarCartas.mp3" id="11_mezclar"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_84c28"]
 size = Vector2(247.28987, 380.31204)
@@ -23,9 +29,80 @@ texture = ExtResource("1_0oq73")
 [node name="CardManager" type="Node2D" parent="." unique_id=1053948240]
 script = ExtResource("1_y40m8")
 
-[node name="CardSlot" parent="." unique_id=272516031 instance=ExtResource("3_aj2k0")]
+[node name="Pozo" parent="." instance=ExtResource("3_pozo")]
 position = Vector2(1157, 403)
 scale = Vector2(0.73193455, 0.8519321)
+
+[node name="BotHand" parent="." instance=ExtResource("3_bothand")]
+position = Vector2(960, 120)
+
+[node name="GameManager" type="Node2D" parent="."]
+script = ExtResource("3_gamemanager")
+
+[node name="Bot" type="Node" parent="."]
+script = ExtResource("3_botplayer")
+
+[node name="EstadoLabel" type="Label" parent="."]
+offset_left = 700.0
+offset_top = 20.0
+offset_right = 1300.0
+offset_bottom = 60.0
+horizontal_alignment = 1
+text = "Tu turno: robá del mazo o del pozo"
+
+[node name="BotonCortar" type="Button" parent="."]
+offset_left = 1650.0
+offset_top = 850.0
+offset_right = 1850.0
+offset_bottom = 900.0
+text = "Cortar"
+visible = false
+
+[node name="BotonOrdenarValor" type="Button" parent="."]
+offset_left = 700.0
+offset_top = 1000.0
+offset_right = 920.0
+offset_bottom = 1045.0
+text = "Ordenar por valor"
+
+[node name="BotonOrdenarPalo" type="Button" parent="."]
+offset_left = 940.0
+offset_top = 1000.0
+offset_right = 1160.0
+offset_bottom = 1045.0
+text = "Ordenar por palo"
+
+[node name="PanelPuntajes" type="Panel" parent="."]
+visible = false
+offset_left = 660.0
+offset_top = 350.0
+offset_right = 1260.0
+offset_bottom = 650.0
+
+[node name="ResultadoLabel" type="Label" parent="PanelPuntajes"]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 580.0
+offset_bottom = 70.0
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+text = "Resultado de la ronda"
+
+[node name="PuntajesLabel" type="Label" parent="PanelPuntajes"]
+offset_left = 20.0
+offset_top = 90.0
+offset_right = 580.0
+offset_bottom = 220.0
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+text = ""
+
+[node name="BotonSiguienteRonda" type="Button" parent="PanelPuntajes"]
+offset_left = 200.0
+offset_top = 240.0
+offset_right = 400.0
+offset_bottom = 285.0
+text = "Siguiente ronda"
 
 [node name="PlayerHand" type="Node2D" parent="." unique_id=306979003]
 script = ExtResource("4_4sxlw")
@@ -71,3 +148,12 @@ z_index = -10
 position = Vector2(1023, 208)
 scale = Vector2(4.140086, 7.4130893)
 texture = ExtResource("8_kx0tg")
+
+[node name="Juego_Musica" type="AudioStreamPlayer" parent="." unique_id=1659930961]
+stream = ExtResource("9_84c28")
+
+[node name="Audio_TomarDejarCartas" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_cartas")
+
+[node name="Audio_MezclarCartas" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_mezclar")

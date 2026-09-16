@@ -1,47 +1,68 @@
 extends Node2D
 
-const HAND_Y_POSITION = 775
+const POSICION_Y_MANO = 775
 const DEFAULT_CARD_MOVE_SPEED = 0.1
-const FAN_ANGLE_STEP = 5.0
-const FAN_RADIUS = 1500.0
+const PASO_ANGULO_ABANICO = 5.0
+const RADIO_ABANICO = 1500.0
+const ORDEN_PALO = {"oros": 0, "copas": 1, "espadas": 2, "bastos": 3, "mundial": 4}
 
-var player_hand = []
-var center_screen_x
+var mano = []
+var centro_pantalla_x
 
-# Called when the node enters the scene tree for the first time.
+@onready var boton_ordenar_valor = $"../BotonOrdenarValor"
+@onready var boton_ordenar_palo = $"../BotonOrdenarPalo"
+
 func _ready() -> void:
-	center_screen_x = get_viewport().size.x / 2
-	
+	centro_pantalla_x = get_viewport().size.x / 2
+	boton_ordenar_valor.pressed.connect(ordenar_por_valor_desc)
+	boton_ordenar_palo.pressed.connect(ordenar_por_palo)
+
+func ordenar_por_valor_desc() -> void:
+	mano.sort_custom(func(a, b): return a.card_data.numero > b.card_data.numero)
+	actualizar_posiciones_mano(DEFAULT_CARD_MOVE_SPEED)
+
+func ordenar_por_palo() -> void:
+	mano.sort_custom(func(a, b):
+		var pa = ORDEN_PALO.get(a.card_data.palo, 99)
+		var pb = ORDEN_PALO.get(b.card_data.palo, 99)
+		if pa == pb:
+			return a.card_data.numero < b.card_data.numero
+		return pa < pb
+	)
+	actualizar_posiciones_mano(DEFAULT_CARD_MOVE_SPEED)
+
 func add_card_to_hand(card, speed):
-	if card not in player_hand:
-		player_hand.insert(0, card)
-		update_hand_positions(speed)
+	if card not in mano:
+		mano.insert(0, card)
+		actualizar_posiciones_mano(speed)
 	else:
-		card.animate_to({
-			"position": card.starting_position,
-			"rotation_degrees": card.starting_rotation
+		card.animar_a({
+			"position": card.posicion_inicial,
+			"rotation_degrees": card.rotacion_inicial
 		}, DEFAULT_CARD_MOVE_SPEED)
 
-func update_hand_positions(speed):
-	for i in range(player_hand.size()):
-		var fan_transform = calculate_fan_transform(i)
-		var card = player_hand[i]
-		card.starting_position = fan_transform.position
-		card.starting_rotation = fan_transform.rotation
-		card.animate_to({
-			"position": fan_transform.position,
-			"rotation_degrees": fan_transform.rotation
+func actualizar_posiciones_mano(speed):
+	for i in range(mano.size()):
+		var transformacion_abanico = calcular_transformacion_abanico(i)
+		var card = mano[i]
+		card.posicion_inicial = transformacion_abanico.position
+		card.rotacion_inicial = transformacion_abanico.rotation
+		card.indice_z_base = i
+		card.z_index = i
+		card.animar_a({
+			"position": transformacion_abanico.position,
+			"rotation_degrees": transformacion_abanico.rotation
 		}, speed)
 
-func calculate_fan_transform(index) -> Dictionary:
-	var center_index = (player_hand.size() - 1) / 2.0
-	var angle_deg = (index - center_index) * FAN_ANGLE_STEP
-	var angle_rad = deg_to_rad(angle_deg)
-	var x = center_screen_x + 200 + sin(angle_rad) * FAN_RADIUS
-	var y = HAND_Y_POSITION + FAN_RADIUS * (1 - cos(angle_rad))
-	return {"position": Vector2(x, y), "rotation": angle_deg}
+func calcular_transformacion_abanico(index) -> Dictionary:
+	var indice_central = (mano.size() - 1) / 2.0
+	var angulo_grados = (index - indice_central) * PASO_ANGULO_ABANICO
+	var angulo_rad = deg_to_rad(angulo_grados)
+	var x = centro_pantalla_x + sin(angulo_rad) * RADIO_ABANICO
+	var y = POSICION_Y_MANO + RADIO_ABANICO * (1 - cos(angulo_rad))
+	return {"position": Vector2(x, y), "rotation": angulo_grados}
 
 func remove_card_from_hand(card):
-	if card in player_hand:
-		player_hand.erase(card)
-		update_hand_positions(DEFAULT_CARD_MOVE_SPEED)
+	if card in mano:
+		mano.erase(card)
+		actualizar_posiciones_mano(DEFAULT_CARD_MOVE_SPEED)
