@@ -13,7 +13,7 @@ var centro_pantalla_x
 @onready var boton_ordenar_palo = $"../BotonOrdenarPalo"
 
 func _ready() -> void:
-	centro_pantalla_x = get_viewport().size.x / 2
+	centro_pantalla_x = (get_viewport().size.x / 2) + 200
 	boton_ordenar_valor.pressed.connect(ordenar_por_valor_desc)
 	boton_ordenar_palo.pressed.connect(ordenar_por_palo)
 

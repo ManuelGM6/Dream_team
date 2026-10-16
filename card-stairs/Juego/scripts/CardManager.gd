@@ -32,6 +32,9 @@ func _process(delta: float) -> void:
 			clamp(posicion_mouse.y, 0, tamano_pantalla.y))
 
 func iniciar_arrastre(card):
+	if gestor_juego and gestor_juego.en_fase_encaje():
+		gestor_juego.al_click_carta_encaje(card)
+		return
 	if gestor_juego and not gestor_juego.puede_jugador_interactuar_mano():
 		return
 	card_being_dragged = card
@@ -53,6 +56,21 @@ func terminar_arrastre():
 
 	card.z_index = card.indice_z_base
 	referencia_mano_jugador.add_card_to_hand(card, DEFAULT_CARD_MOVE_SPEED)
+
+func cancelar_arrastre() -> void:
+	if not card_being_dragged:
+		return
+	var card = card_being_dragged
+	card_being_dragged = null
+	card.z_index = card.indice_z_base
+	card.scale = DEFAULT_SCALE
+	referencia_mano_jugador.add_card_to_hand(card, DEFAULT_CARD_MOVE_SPEED)
+
+func olvidar_carta(card) -> void:
+	if card_being_dragged == card:
+		card_being_dragged = null
+	if currently_hovered_card == card:
+		currently_hovered_card = null
 
 func connect_card_signals(card):
 	card.connect("resaltada", on_hovered_over_card)

@@ -2,10 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://dkdir76ycj6ne" path="res://Juego/imgs/fondo.png" id="1_0oq73"]
 [ext_resource type="Script" uid="uid://djwe6y11pbyi6" path="res://Juego/scripts/CardManager.gd" id="1_y40m8"]
-[ext_resource type="PackedScene" path="res://Juego/escenas/Pozo.tscn" id="3_pozo"]
 [ext_resource type="PackedScene" path="res://Juego/escenas/BotHand.tscn" id="3_bothand"]
-[ext_resource type="Script" path="res://Juego/scripts/GameManager.gd" id="3_gamemanager"]
-[ext_resource type="Script" path="res://Juego/scripts/BotPlayer.gd" id="3_botplayer"]
+[ext_resource type="Script" uid="uid://dvo6cq4qxicjm" path="res://Juego/scripts/BotPlayer.gd" id="3_botplayer"]
+[ext_resource type="Script" uid="uid://dn8udyafsv70d" path="res://Juego/scripts/GameManager.gd" id="3_gamemanager"]
+[ext_resource type="PackedScene" path="res://Juego/escenas/Pozo.tscn" id="3_pozo"]
 [ext_resource type="Script" uid="uid://c13tf7rsrkmtq" path="res://Juego/scripts/PlayerHand.gd" id="4_4sxlw"]
 [ext_resource type="Script" uid="uid://ckgh4hvvc87mk" path="res://Juego/scripts/Deck.gd" id="4_knann"]
 [ext_resource type="Texture2D" uid="uid://8lt81fn8ko0y" path="res://Juego/imgs/mazo.png" id="5_0oq73"]
@@ -29,75 +29,77 @@ texture = ExtResource("1_0oq73")
 [node name="CardManager" type="Node2D" parent="." unique_id=1053948240]
 script = ExtResource("1_y40m8")
 
-[node name="Pozo" parent="." instance=ExtResource("3_pozo")]
+[node name="Pozo" parent="." unique_id=926319281 instance=ExtResource("3_pozo")]
 position = Vector2(1157, 403)
 scale = Vector2(0.73193455, 0.8519321)
 
-[node name="BotHand" parent="." instance=ExtResource("3_bothand")]
+[node name="BotHand" parent="." unique_id=197376970 instance=ExtResource("3_bothand")]
 position = Vector2(960, 120)
 
-[node name="GameManager" type="Node2D" parent="."]
+[node name="GameManager" type="Node2D" parent="." unique_id=896332997]
 script = ExtResource("3_gamemanager")
 
-[node name="Bot" type="Node" parent="."]
+[node name="Bot" type="Node" parent="." unique_id=1422218317]
 script = ExtResource("3_botplayer")
 
-[node name="EstadoLabel" type="Label" parent="."]
+[node name="EstadoLabel" type="Label" parent="." unique_id=440923781]
 offset_left = 700.0
 offset_top = 20.0
 offset_right = 1300.0
 offset_bottom = 60.0
-horizontal_alignment = 1
 text = "Tu turno: robá del mazo o del pozo"
+horizontal_alignment = 1
 
-[node name="BotonCortar" type="Button" parent="."]
+[node name="BotonCortar" type="Button" parent="." unique_id=1372134462]
+visible = false
 offset_left = 1650.0
 offset_top = 850.0
 offset_right = 1850.0
 offset_bottom = 900.0
 text = "Cortar"
-visible = false
 
-[node name="BotonOrdenarValor" type="Button" parent="."]
+[node name="BotonOrdenarValor" type="Button" parent="." unique_id=1902573537]
 offset_left = 700.0
 offset_top = 1000.0
 offset_right = 920.0
 offset_bottom = 1045.0
 text = "Ordenar por valor"
 
-[node name="BotonOrdenarPalo" type="Button" parent="."]
+[node name="BotonOrdenarPalo" type="Button" parent="." unique_id=1384735991]
 offset_left = 940.0
 offset_top = 1000.0
 offset_right = 1160.0
 offset_bottom = 1045.0
 text = "Ordenar por palo"
 
-[node name="PanelPuntajes" type="Panel" parent="."]
+[node name="PanelPuntajes" type="Panel" parent="." unique_id=136164577]
 visible = false
 offset_left = 660.0
 offset_top = 350.0
 offset_right = 1260.0
 offset_bottom = 650.0
 
-[node name="ResultadoLabel" type="Label" parent="PanelPuntajes"]
+[node name="ResultadoLabel" type="Label" parent="PanelPuntajes" unique_id=1726763332]
+layout_mode = 0
 offset_left = 20.0
 offset_top = 20.0
 offset_right = 580.0
 offset_bottom = 70.0
 theme_override_font_sizes/font_size = 32
-horizontal_alignment = 1
 text = "Resultado de la ronda"
+horizontal_alignment = 1
 
-[node name="PuntajesLabel" type="Label" parent="PanelPuntajes"]
+[node name="PuntajesLabel" type="Label" parent="PanelPuntajes" unique_id=1852956493]
+layout_mode = 0
 offset_left = 20.0
 offset_top = 90.0
 offset_right = 580.0
 offset_bottom = 220.0
 theme_override_font_sizes/font_size = 24
 horizontal_alignment = 1
-text = ""
 
-[node name="BotonSiguienteRonda" type="Button" parent="PanelPuntajes"]
+[node name="BotonSiguienteRonda" type="Button" parent="PanelPuntajes" unique_id=1955089879]
+layout_mode = 0
 offset_left = 200.0
 offset_top = 240.0
 offset_right = 400.0
@@ -152,8 +154,8 @@ texture = ExtResource("8_kx0tg")
 [node name="Juego_Musica" type="AudioStreamPlayer" parent="." unique_id=1659930961]
 stream = ExtResource("9_84c28")
 
-[node name="Audio_TomarDejarCartas" type="AudioStreamPlayer" parent="."]
+[node name="Audio_TomarDejarCartas" type="AudioStreamPlayer" parent="." unique_id=1318966896]
 stream = ExtResource("10_cartas")
 
-[node name="Audio_MezclarCartas" type="AudioStreamPlayer" parent="."]
+[node name="Audio_MezclarCartas" type="AudioStreamPlayer" parent="." unique_id=1297571068]
 stream = ExtResource("11_mezclar")

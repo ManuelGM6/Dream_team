@@ -15,6 +15,8 @@ func _ready() -> void:
 	referencia_gestor_juego = $"../GameManager"
 
 func _input(event):
+	if referencia_gestor_juego.salida_abierta:
+		return
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
 			emit_signal("click_izquierdo_mouse")

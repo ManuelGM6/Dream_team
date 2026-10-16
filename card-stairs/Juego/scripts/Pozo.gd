@@ -20,6 +20,10 @@ func discard_card_data(card_data: Dictionary) -> void:
 	pila_descarte.append(card_data)
 	_actualizar_visual()
 
+func reiniciar() -> void:
+	pila_descarte.clear()
+	_actualizar_visual()
+
 func peek_top_card_data():
 	if pila_descarte.is_empty():
 		return null

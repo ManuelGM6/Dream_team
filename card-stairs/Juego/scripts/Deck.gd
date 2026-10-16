@@ -18,9 +18,18 @@ func crear_mazo() -> void:
 	for palo in card_database_reference.CARDS.keys():
 		for numero in card_database_reference.CARDS[palo]:
 			mazo.append({"palo": palo, "numero": numero})
+	_validar_mazo()
 	mazo.shuffle()
 	audio_mezclar.play()
+	_actualizar_visibilidad()
 	_actualizar_etiqueta()
+
+func _validar_mazo() -> void:
+	var vistas := {}
+	for carta in mazo:
+		var clave = "%s_%d" % [carta.palo, carta.numero]
+		assert(not vistas.has(clave), "Carta duplicada en el mazo: " + clave)
+		vistas[clave] = true
 
 func draw_card_data() -> Dictionary:
 	if mazo.is_empty():

@@ -2,7 +2,7 @@ extends Node2D
 
 const CARD_SCENE_PATH = "res://Juego/escenas/Card.tscn"
 const POSICION_Y_CARTAS = 55.0
-const ESPACIADO_X = 40.0
+const ESPACIADO_X = 85.0
 const ESCALA_CARTA_OCULTA = Vector2(1.0, 1.0)
 
 var mano: Array = []
